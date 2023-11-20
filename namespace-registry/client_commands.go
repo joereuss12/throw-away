@@ -49,6 +49,8 @@ type clientResponseData struct {
 	Error           string `json:"error"`
 }
 
+
+
 func NamespaceRegisterWithIdentity(privateKey jwk.Key, namespaceRegistryEndpoint string, prefix string) error {
 	identifiedPayload := map[string]interface{}{
 		"identity_required": "true",

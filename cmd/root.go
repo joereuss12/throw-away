@@ -85,6 +85,7 @@ func Execute() {
 func init() {
 
 	cobra.OnInitialize(config.InitConfig)
+
 	rootCmd.AddCommand(objectCmd)
 	objectCmd.CompletionOptions.DisableDefaultCmd = true
 	rootCmd.AddCommand(directorCmd)
