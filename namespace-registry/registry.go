@@ -65,6 +65,7 @@ var (
 	serverCredsErr     error
 )
 
+
 type Response struct {
 	VerificationURLComplete string `json:"verification_uri_complete"`
 	DeviceCode              string `json:"device_code"`
