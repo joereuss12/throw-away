@@ -70,10 +70,10 @@ jobs:
     - uses: actions/setup-node@v4
       with:
         node-version: 20
-    - name: Fetch tags
-      run: |
-        git config --global --add safe.directory /__w/throw-away/throw-away
-        git fetch --force --tags
+    # - name: Fetch tags
+    #   run: |
+    #     git config --global --add safe.directory /__w/throw-away/throw-away
+    #     git fetch --force --tags
     - name: Cache Next.js
       uses: actions/cache@v3
       with:
