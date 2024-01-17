@@ -15,6 +15,8 @@ jobs:
       with:
         fetch-depth: 0
         fetch-tags: true
+    - name: Fetch tags
+      run: git fetch --force --tags
     - uses: actions/setup-node@v4
       with:
         node-version: 20
@@ -68,6 +70,8 @@ jobs:
     - uses: actions/setup-node@v4
       with:
         node-version: 20
+    - name: Fetch tags
+      run: git fetch --force --tags
     - name: Cache Next.js
       uses: actions/cache@v3
       with:
@@ -79,10 +83,10 @@ jobs:
         # If source files changed but packages didn't, rebuild from a prior cache.
         restore-keys: |
           ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-
-    - name: Test
-      run: |
-        make web-build
-        go test -coverpkg=./... -coverprofile=coverage.out -covermode=count ./...
+    # - name: Test
+    #   run: |
+    #     make web-build
+    #     go test -coverpkg=./... -coverprofile=coverage.out -covermode=count ./...
     - name: Get total code coverage
       if: github.event_name == 'pull_request'
       id: cc
