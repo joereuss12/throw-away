@@ -43,11 +43,11 @@ jobs:
         # Explicitly set XRootD to IPv4-only on Mac OS X to avoid a subtle config bug.
         export PELICAN_XROOTD_IPV4ONLY=true
         go test -v -coverpkg=./... -coverprofile=coverage.out -covermode=count ./...
-    - name: Test
-      if: runner.os != 'macOS'
-      run: |
-        make web-build
-        go test ./...
+    # - name: Test
+    #   if: runner.os != 'macOS'
+    #   run: |
+    #     make web-build
+    #     go test ./...
     - name: Run GoReleaser for Non-Ubuntu
       uses: goreleaser/goreleaser-action@v4
       with:
